@@ -1,0 +1,13 @@
+# Local runtime logs
+*.log
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependency/build folders, if added later
+node_modules/
+dist/
+build/
