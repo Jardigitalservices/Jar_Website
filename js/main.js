@@ -30,6 +30,8 @@
     });
 
 
+    var isRtl = $('html').attr('dir') === 'rtl';
+
     // Team carousel
     $(".team-carousel").owlCarousel({
         autoplay: true,
@@ -38,6 +40,7 @@
         dots: false,
         loop: true,
         margin: 50,
+        rtl: isRtl,
         nav : true,
         navText : [
             '<i class="bi bi-arrow-left"></i>',
@@ -67,6 +70,7 @@
         dots: true,
         loop: true,
         margin: 0,
+        rtl: isRtl,
         nav : true,
         navText: false,
         responsiveClass: true,
