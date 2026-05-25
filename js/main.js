@@ -342,6 +342,24 @@
         event.preventDefault();
     });
 
+    // Keep root-relative internal links usable when pages are opened directly from disk.
+    $(document).on("click", "a[href^='/']", function (event) {
+        if (window.location.protocol !== "file:") {
+            return;
+        }
+
+        var targetPath = $(this).attr("href");
+        if (!targetPath || targetPath.indexOf("//") === 0) {
+            return;
+        }
+
+        event.preventDefault();
+
+        var currentPath = decodeURIComponent(window.location.pathname).replace(/\\/g, "/");
+        var siteRoot = currentPath.replace(/\/(?:dr|ps)\/[^\/]*$/, "/").replace(/\/[^\/]*$/, "/");
+        window.location.href = encodeURI("file://" + siteRoot + targetPath.replace(/^\//, ""));
+    });
+
     // Contact form fallback for static hosting
     $(document).on("submit", ".jar-contact-form", function (event) {
         event.preventDefault();
