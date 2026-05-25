@@ -86,6 +86,52 @@
         }
     });
 
+    // Homepage project carousel on small screens
+    var homeProjectCarouselTimer;
+    function toggleHomeProjectCarousel() {
+        var $projectCarousel = $(".home-project-slider");
+
+        if (!$projectCarousel.length || !$.fn.owlCarousel) {
+            return;
+        }
+
+        if (window.matchMedia("(max-width: 767.98px)").matches) {
+            if (!$projectCarousel.hasClass("owl-loaded")) {
+                $projectCarousel.addClass("owl-carousel home-project-carousel").owlCarousel({
+                    autoplay: true,
+                    autoplayTimeout: 2800,
+                    autoplayHoverPause: true,
+                    smartSpeed: 1000,
+                    loop: true,
+                    margin: 18,
+                    dots: true,
+                    nav: false,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            center: true
+                        },
+                        576: {
+                            items: 2,
+                            center: false
+                        }
+                    }
+                });
+            }
+        } else if ($projectCarousel.hasClass("owl-loaded")) {
+            $projectCarousel.trigger("destroy.owl.carousel");
+            $projectCarousel.removeClass("owl-carousel owl-loaded owl-drag home-project-carousel");
+            $projectCarousel.find(".owl-stage-outer").children().unwrap();
+        }
+    }
+
+    toggleHomeProjectCarousel();
+    $(window).on("resize", function () {
+        clearTimeout(homeProjectCarouselTimer);
+        homeProjectCarouselTimer = setTimeout(toggleHomeProjectCarousel, 150);
+    });
+
 
      // Fact Counter
 
@@ -171,6 +217,16 @@
             description: "Client feedback page for digital design, development and online growth projects"
         },
         {
+            title: "Privacy Policy",
+            url: "privacy-policy.html",
+            description: "How Jar Digital Services collects, uses, protects and handles visitor, inquiry and client information"
+        },
+        {
+            title: "Terms of Service",
+            url: "terms-of-service.html",
+            description: "General terms for using the Jar Digital Services website and working with us on digital projects"
+        },
+        {
             title: "Contact",
             url: "contact.html",
             description: "Contact Jar Digital Services for a website, branding, store or social media package"
@@ -220,7 +276,7 @@
         }
     });
 
-    // Language selector scaffold
+    // Language selector
     var languageOptions = {
         en: {
             label: "English",
@@ -228,13 +284,13 @@
             dir: "ltr"
         },
         fa: {
-            label: "Dari",
-            htmlLang: "fa",
+            label: "دری",
+            htmlLang: "prs-AF",
             dir: "rtl"
         },
         ps: {
-            label: "Pashto",
-            htmlLang: "ps",
+            label: "پښتو",
+            htmlLang: "ps-AF",
             dir: "rtl"
         }
     };
@@ -269,14 +325,21 @@
     }
 
     var initialLanguage = "en";
-    try {
-        initialLanguage = window.localStorage.getItem("jarSelectedLanguage") || "en";
-    } catch (error) {}
+    var documentLanguage = (document.documentElement.getAttribute("lang") || "en").toLowerCase();
+    if (documentLanguage.indexOf("prs") === 0) {
+        initialLanguage = "fa";
+    } else if (documentLanguage.indexOf("ps") === 0) {
+        initialLanguage = "ps";
+    }
 
     applyLanguage(initialLanguage);
 
-    $(document).on("click", "[data-language-option]", function () {
+    $(document).on("click", "[data-language-option]", function (event) {
         applyLanguage($(this).data("language-option"));
+        if (this.href) {
+            return;
+        }
+        event.preventDefault();
     });
 
     // Contact form fallback for static hosting
