@@ -1857,6 +1857,33 @@
     line-height: 1.7;
 }
 
+.page-header .hero-cta-row {
+    width: min(100%, 940px);
+    max-width: 940px;
+    margin-top: 1.5rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+html[dir="ltr"] .page-header .container {
+    text-align: left !important;
+}
+
+html[dir="ltr"] .page-header h1,
+html[dir="ltr"] .page-header h5,
+html[dir="ltr"] .page-header p {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    text-align: left;
+}
+
+html[dir="ltr"] .page-header .hero-cta-row {
+    margin-right: auto;
+    margin-left: 0;
+    direction: ltr;
+    justify-content: flex-start !important;
+}
+
 @media (max-width: 575.98px) {
     .page-header {
         min-height: 250px;
@@ -1943,6 +1970,21 @@
     .page-header .breadcrumb-item,
     .page-header .breadcrumb-item a {
         font-size: 15px;
+    }
+
+    .page-header .hero-cta-row,
+    html[dir="ltr"] .page-header .hero-cta-row {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        justify-content: center !important;
+        gap: .75rem !important;
+    }
+
+    .page-header .hero-cta-row .btn {
+        min-width: min(100%, 155px);
+        padding: .85rem 1.15rem !important;
+        font-size: .95rem;
     }
 }
 
@@ -2058,7 +2100,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: .9rem;
+    margin: 0 auto .9rem;
     color: var(--bs-dark);
     background: var(--bs-secondary);
     border-radius: 50%;
@@ -2881,6 +2923,24 @@
     .home-page .about-section .container.pt-5 {
         padding-top: 0 !important;
     }
+
+    .process-step,
+    html[dir="rtl"] .process-step {
+        text-align: center !important;
+    }
+
+    .process-step span,
+    html[dir="rtl"] .process-step span {
+        display: flex;
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+
+    .process-step h4,
+    .process-step p {
+        text-align: center !important;
+    }
+
 
     .home-page .about-section .row.g-5 {
         --bs-gutter-y: 1.75rem;
@@ -4154,6 +4214,84 @@ html[dir="rtl"] .team-page .team-profile-link i {
 .testimonial-carousel .owl-item.center .testimonial-item {
     background: #FFFFFF !important;
     box-shadow: 0 0 30px #DDDDDD;
+}
+
+.testimonial-page {
+    background: var(--bs-white);
+}
+
+.testimonial-info-panel h2 {
+    line-height: 1.25;
+}
+
+.testimonial-feature-slider {
+    padding-bottom: .5rem;
+}
+
+.testimonial-feature-slider .testimonial-carousel {
+    margin-top: .25rem;
+}
+
+.home-testimonial-link {
+    position: relative;
+    z-index: 2;
+}
+
+.testimonial-focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.testimonial-focus-card {
+    height: 100%;
+    padding: 1.75rem;
+    border: 1px solid rgba(0, 1, 3, .08);
+    border-radius: 8px;
+    background: var(--bs-light);
+    box-shadow: 0 12px 30px rgba(0, 1, 3, .06);
+}
+
+.testimonial-focus-card i {
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--bs-white);
+    background: var(--bs-secondary);
+    border-radius: 50%;
+    font-size: 1.1rem;
+}
+
+.testimonial-focus-card h3 {
+    margin-bottom: .75rem;
+    color: var(--bs-dark);
+    font-size: 1.25rem;
+}
+
+.testimonial-focus-card p {
+    margin-bottom: 0;
+    color: #6c757d;
+}
+
+@media (max-width: 991.98px) {
+    .testimonial-focus-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 575.98px) {
+    .testimonial-focus-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .testimonial-focus-card {
+        padding: 1.35rem;
+        text-align: center;
+    }
 }
 
 /*** Testimonial End ***/
@@ -5469,6 +5607,11 @@ html[dir="rtl"] .service-panel,
 html[dir="rtl"] .process-step {
     direction: rtl;
     text-align: right;
+}
+
+html[dir="rtl"] .process-step span {
+    margin-right: auto;
+    margin-left: auto;
 }
 
 html[dir="rtl"] .services-page-grid .text-center,
