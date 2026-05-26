@@ -16,11 +16,12 @@
 /*** Spinner End ***/
 
 :root {
-    --jar-glass-dark: rgba(0, 1, 3, .38);
-    --jar-glass-dark-strong: rgba(0, 1, 3, .68);
-    --jar-glass-border: rgba(255, 255, 255, .24);
-    --jar-glass-shine: linear-gradient(135deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .04) 38%, rgba(255, 255, 255, .1));
-    --jar-glass-surface: var(--jar-glass-shine), var(--jar-glass-dark-strong);
+    --jar-glass-dark: rgba(8, 18, 35, .48);
+    --jar-glass-dark-strong: rgba(8, 18, 35, .65);
+    --jar-glass-border: rgba(255, 255, 255, .18);
+    --jar-glass-shine: linear-gradient(135deg, rgba(255, 255, 255, .11), rgba(255, 255, 255, .025) 42%, rgba(255, 255, 255, .06));
+    --jar-glass-surface: var(--jar-glass-shine), var(--jar-glass-dark);
+    --jar-dropdown-glass: linear-gradient(135deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .025) 42%, rgba(255, 255, 255, .055)), var(--jar-glass-dark-strong);
 }
 
 
@@ -101,11 +102,11 @@
     display: flex;
     z-index: 30;
     background: var(--jar-glass-surface) !important;
-    -webkit-backdrop-filter: blur(22px) saturate(170%) brightness(1.08);
-    backdrop-filter: blur(22px) saturate(170%) brightness(1.08);
-    border-top: 1px solid rgba(255, 255, 255, .22);
-    border-bottom: 1px solid rgba(255, 255, 255, .18);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 14px 34px rgba(0, 1, 3, .16);
+    -webkit-backdrop-filter: blur(8px) saturate(135%);
+    backdrop-filter: blur(8px) saturate(135%);
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    border-bottom: 1px solid rgba(255, 255, 255, .14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 10px 28px rgba(0, 0, 0, .18);
 }
 
 .topbar {
@@ -203,9 +204,9 @@
     padding: 6px 18px;
     margin-left: clamp(28px, 3vw, 42px);
     margin-right: clamp(28px, 3vw, 42px);
-    border: 1px solid rgba(255, 255, 255, .2);
+    border: 1px solid rgba(255, 255, 255, .18);
     border-width: 0 1px;
-    background: rgba(255, 255, 255, .045);
+    background: rgba(255, 255, 255, .035);
     font-size: .88rem;
     font-weight: 600;
 }
@@ -322,11 +323,11 @@
     z-index: 29;
     --header-orange: #E87705;
     background: var(--jar-glass-surface) !important;
-    -webkit-backdrop-filter: blur(22px) saturate(170%) brightness(1.08);
-    backdrop-filter: blur(22px) saturate(170%) brightness(1.08);
-    border-top: 1px solid rgba(255, 255, 255, .16);
-    border-bottom: 1px solid rgba(255, 255, 255, .12);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 14px 34px rgba(0, 1, 3, .12);
+    -webkit-backdrop-filter: blur(8px) saturate(135%);
+    backdrop-filter: blur(8px) saturate(135%);
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid rgba(255, 255, 255, .14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 10px 28px rgba(0, 0, 0, .18);
 }
 
 .site-header .navbar {
@@ -493,9 +494,9 @@
 .site-header .language-menu {
     min-width: 150px;
     padding: 8px;
-    background: var(--jar-glass-surface);
-    -webkit-backdrop-filter: blur(18px) saturate(160%) brightness(1.06);
-    backdrop-filter: blur(18px) saturate(160%) brightness(1.06);
+    background: var(--jar-dropdown-glass);
+    -webkit-backdrop-filter: blur(10px) saturate(145%);
+    backdrop-filter: blur(10px) saturate(145%);
     border: 1px solid var(--jar-glass-border);
     border-top: 3px solid var(--bs-secondary);
     border-radius: 8px;
@@ -691,9 +692,9 @@
     min-width: 190px;
     padding: 8px;
     overflow: hidden;
-    background: var(--jar-glass-surface);
-    -webkit-backdrop-filter: blur(18px) saturate(160%) brightness(1.06);
-    backdrop-filter: blur(18px) saturate(160%) brightness(1.06);
+    background: var(--jar-dropdown-glass);
+    -webkit-backdrop-filter: blur(10px) saturate(145%);
+    backdrop-filter: blur(10px) saturate(145%);
     border: 1px solid var(--jar-glass-border);
     border-top: 3px solid var(--bs-secondary);
     border-radius: 8px;
@@ -870,11 +871,11 @@
         margin-top: 0;
         padding: 14px 18px 16px;
         background: var(--jar-glass-surface);
-        -webkit-backdrop-filter: blur(22px) saturate(170%) brightness(1.08);
-        backdrop-filter: blur(22px) saturate(170%) brightness(1.08);
+        -webkit-backdrop-filter: blur(8px) saturate(135%);
+        backdrop-filter: blur(8px) saturate(135%);
         border: 1px solid rgba(255, 255, 255, .18);
         border-radius: 0 0 10px 10px;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 18px 40px rgba(0, 1, 3, .2);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 10px 28px rgba(0, 0, 0, .18);
     }
 
     .site-header .navbar-collapse.collapsing {
@@ -899,9 +900,9 @@
         width: 100%;
         margin: 0 0 12px;
         padding: 7px;
-        background: var(--jar-glass-surface);
-        -webkit-backdrop-filter: blur(18px) saturate(155%) brightness(1.04);
-        backdrop-filter: blur(18px) saturate(155%) brightness(1.04);
+        background: var(--jar-dropdown-glass);
+        -webkit-backdrop-filter: blur(10px) saturate(145%);
+        backdrop-filter: blur(10px) saturate(145%);
         border: 1px solid rgba(255, 255, 255, .18);
         border-top: 3px solid var(--bs-secondary);
         box-shadow: none;
@@ -967,9 +968,9 @@
         width: 100%;
         margin: 8px 0 0;
         padding: 6px;
-        background: var(--jar-glass-surface);
-        -webkit-backdrop-filter: blur(18px) saturate(155%) brightness(1.04);
-        backdrop-filter: blur(18px) saturate(155%) brightness(1.04);
+        background: var(--jar-dropdown-glass);
+        -webkit-backdrop-filter: blur(10px) saturate(145%);
+        backdrop-filter: blur(10px) saturate(145%);
         border: 1px solid rgba(255, 255, 255, .18);
         border-top: 1px solid rgba(232, 119, 5, .42);
         border-radius: 8px;
