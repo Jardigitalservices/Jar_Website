@@ -108,6 +108,7 @@
                     smartSpeed: 1000,
                     loop: true,
                     margin: 18,
+                    rtl: isRtl,
                     dots: true,
                     nav: false,
                     responsiveClass: true,
@@ -125,7 +126,7 @@
             }
         } else if ($projectCarousel.hasClass("owl-loaded")) {
             $projectCarousel.trigger("destroy.owl.carousel");
-            $projectCarousel.removeClass("owl-carousel owl-loaded owl-drag home-project-carousel");
+            $projectCarousel.removeClass("owl-carousel owl-loaded owl-drag owl-rtl home-project-carousel");
             $projectCarousel.find(".owl-stage-outer").children().unwrap();
         }
     }
